@@ -1,17 +1,9 @@
-import { useEffect, useState } from 'react'
 import './App.css'
+import useGetGhibliFilms from './hooks/useGetGhibliFilms'
 
 function App() {
 
-  const [films, setFilms] = useState([])
-
-  useEffect(() => {
-    fetch('https://ghibliapi.vercel.app/films')
-      .then(res => res.json())
-      .then(res => setFilms(res))
-      .catch(error => console.log(error))
-
-  }, [])
+  const [films] = useGetGhibliFilms();
 
   return (
     <>
